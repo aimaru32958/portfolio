@@ -1,0 +1,183 @@
+@use "../../global" as global;
+
+/*================================================================
+p-price
+================================================================*/
+
+.p-price {
+    background: #EBB7B7 url(../img/common/bg-front.svg) no-repeat center center / cover;
+    @include global.mq('sp') {
+        background: #EBB7B7 url(../img/common/bg-sp.svg) no-repeat top center / cover;
+    }
+
+    /*=====  本音の扉  =====*/
+    &.is-honne {
+        background-color: #666666;
+        color: #FFF;
+    }
+}
+
+.p-price__inner {
+    max-width: 950px;
+    width: calc(950 / global.$design-pc-width * 100vw);
+    width: calc(335 / global.$design-sp-width * 100vw);
+}
+
+.p-price__content {
+    background: #e5e5e5;
+    padding-block: 80px 100px;
+    padding-inline: 10%;
+    border-radius: 40px;
+    margin-top: 40px;
+    position: relative;
+
+    @include global.mq('sp') {
+        padding-inline: calc(16 / global.$design-sp-width * 100vw);
+        padding-block: 40px 100px;
+    }
+
+    /*=====  本音の扉  =====*/
+    &.is-honne {
+        background: #383838;
+    }
+}
+
+.p-price__title {
+    width: fit-content;
+    color: #383838!important;
+    font-size: 24px;
+    padding: 15px 50px;
+    background: global.$sub-color1;
+    border-radius: 30px;
+
+    @include global.mq('sp') {
+        font-size: 20px;
+    }
+}
+
+.p-price__itemWrap {
+    margin-top: 20px;
+
+    @include global.mq('sp') {
+        margin-top: 30px;
+    }
+}
+
+.p-price__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    height: 60px;
+    padding-inline: 30px;
+    border-bottom: 2px solid global.$sub-color2;
+    & + & {
+        margin-top: 10px;
+    }
+    
+    @include global.mq('sp') {
+        display: block;
+        height: unset;
+        padding-bottom: 10px;
+        padding-inline: 10px;
+        & + & {
+            margin-top: 25px;
+        }
+    }
+}
+
+.p-price__itemTitle {
+    font-size: min(calc(16 / global.$design-sp-width * 100vw),20px);
+    padding-left: 30px;
+    position: relative;
+    white-space: nowrap;
+
+    &::before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #3B9023;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+}
+
+.p-price__itemPrice {
+    font-size: min(calc(18 / global.$design-sp-width * 100vw),20px);
+
+    @include global.mq('sp') {
+        text-align: right;
+        margin-top: 10px;
+    }
+}
+
+.p-price__text {
+    font-size: min(calc(16 / global.$design-sp-width * 100vw),18px);
+    margin-top: 20px;
+    margin-inline: 30px;
+
+    @include global.mq('sp') {
+        margin-inline: 10px;
+        line-height: 1.2;
+    }
+}
+
+/*================================================================
+装飾
+================================================================*/
+
+/*=====  本音の扉  =====*/
+.p-price__clover {
+     /*=====  本音の扉  =====*/
+    &.is-honne {
+        #clover-out {
+            fill: rgb(17, 4, 89);
+        }
+        #clover-in {
+            fill: rgb(226, 230, 255);
+        }
+    }
+}
+
+.p-price__clover1 {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: calc(100% - 120px);
+    left: calc(50% + min(calc(345 / global.$design-pc-width * 100vw),345px));
+    transition: all 2s ease;
+
+    @include global.mq('tab') {
+        width: max(calc(200 / 1000 * 100vw),140px);
+    }
+
+    @include global.mq('sp') {
+        left: calc(100% - 135px);
+    }
+
+    &:hover {
+        transform: rotate(365deg);
+    }
+}
+
+.p-price__clover2 {
+    width: 100px;
+    width: 100px;
+    transform: rotate(65deg);
+    position: absolute;
+    top: calc(100% - 65px);
+    left: calc(50% + min(calc(345 / global.$design-pc-width * 100vw),345px) - 115px);
+    transition: all 2s ease;
+
+    @include global.mq('sp') {
+        left: calc(100% - 250px);
+    }
+
+    &:hover {
+        transform: rotate(430deg);
+    }
+}
+

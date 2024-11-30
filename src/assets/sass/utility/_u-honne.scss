@@ -1,0 +1,22 @@
+@use "../global" as global;
+
+/*=====  本音の扉  =====*/
+
+// .u-change {
+//     &.is-honne {}
+// }
+
+.u-front {
+
+    &.is-honne {
+        display: none;
+    }
+}
+
+.u-back {
+    display: none;
+
+    &.is-honne {
+        display: block;
+    }
+}

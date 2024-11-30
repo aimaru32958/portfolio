@@ -1,0 +1,21 @@
+@use "../global" as global;
+
+.u-space-underLine {
+    span {
+        text-decoration: underline solid #FFF 2px;
+        text-underline-offset: 3px;
+    }
+    
+    .is-space {
+        text-decoration: none;
+        &::before {
+            content: "　";
+        }
+    }
+}
+
+.u-space-underLine--brown {
+    span {
+        text-decoration: underline solid #9e7664 2px;
+    }
+}

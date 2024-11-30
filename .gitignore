@@ -1,0 +1,7 @@
+#git 読み込みを無視する
+
+# gulpを無視する。
+/node_modules/
+/gulpfile.js
+/package-lock.json
+/package.json

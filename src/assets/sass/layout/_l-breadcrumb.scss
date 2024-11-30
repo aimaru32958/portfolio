@@ -1,0 +1,78 @@
+@use "../global" as global;
+
+/*================================================================
+breadcrumb
+================================================================*/
+
+.l-breadcrumb {
+    padding-block: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    // spanの設定
+    span {
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+.l-breadcrumb__inner {
+    max-width: 1100px;
+    width: calc(335 / global.$design-sp-width * 100vw);
+    margin-inline: auto;
+}
+
+.l-breadcrumb__content {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    background: #FFF;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-block: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0px 6px #000;
+
+    @include global.mq('sp') {
+
+    }
+
+    a:hover {
+        color: #64BCFC;
+    }
+}
+
+.l-breadcrumb__content > span {
+    &:nth-child(n):not(:last-child) {
+        color: #898989;
+    }
+}
+
+.home {
+    margin-right: 7px;
+    @include global.mq('sp') {
+        font-size: min(calc(14 / global.$design-sp-width * 100vw),14px);
+    }
+}
+
+.pankuzu_arrow {
+    font-size: min(calc(14 / global.$design-sp-width * 100vw),14px);
+    margin-inline: 3px;
+} 
+
+// .post .post-page .current-item {} 
+// 必要か不明
+
+.post,
+.archive,
+.category,
+.taxonomy  {
+    margin-inline: 10px;
+
+    @include global.mq('sp') {
+        font-size: min(calc(14 / global.$design-sp-width * 100vw),14px);
+        white-space: nowrap;
+    }
+}

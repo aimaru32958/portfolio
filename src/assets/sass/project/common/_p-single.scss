@@ -1,0 +1,281 @@
+@use "../../global" as global;
+
+
+/*================================================================
+single 制作物詳細
+================================================================*/
+
+.p-single {
+    background: #DBFEA3;
+}
+
+// .p-single__inner {}
+
+.p-single__title {
+    font-size: 32px;
+    max-width: 900px;
+    width: calc(900 / global.$design-pc-width * 100vw);
+    margin-inline: auto;
+    padding-bottom: 16px;
+    position: relative;
+
+    @include global.mq('sp') {
+        font-size: min(calc(28 / global.$design-sp-width * 100vw),28px);
+        width: calc(300 / global.$design-sp-width * 100vw);
+    }
+
+    &::after {
+        content: "";
+        width: 115%;
+        height: 5px;
+        background: #383838;
+        border-radius: 20px;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.p-single__content {
+    max-width: 1000px;
+    width: calc(1000 / global.$design-pc-width * 100vw);
+    margin-inline: auto;
+
+    @include global.mq('sp') {
+        width: 100%;
+    }
+}
+
+/*================================================================
+サムネイル
+================================================================*/
+
+.p-single__img {
+    width: 80%;
+    margin-inline: auto;
+    border: 5px solid #FFF;
+    border-radius: 10px;
+    margin-top: 50px;
+    overflow: hidden;
+
+    @include global.mq('sp') {
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
+
+/*================================================================
+各項目
+================================================================*/
+
+.p-single__subTitle {
+    display: inline-block;
+    font-size: 24px;
+    padding-inline: 50px;
+    line-height: 50px;
+    border: 2px solid #dede00;
+    border-radius: 0px 20px 20px 0px;
+    background: #ff0;
+    margin-top: 32px;
+
+    @include global.mq('sp') {
+        font-size: min(calc(20 / global.$design-sp-width * 100vw),20px);
+        line-height: 40px;
+    }
+}
+
+.p-single__text {
+    line-height: 1.5;
+    margin-top: 10px;
+    padding-inline: 10px;
+
+    @include global.mq('sp') {
+        font-size: min(calc(18 / global.$design-sp-width * 100vw),18px);
+    }
+}
+
+/*================================================================
+URL
+================================================================*/
+
+// .p-single__url {}
+
+.p-single__link {
+    display: block;
+    color: #547443;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    padding-bottom: 5px;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+// .p-single__id {}
+
+// .p-single__pass {}
+
+/*================================================================
+制作詳細
+================================================================*/
+
+// .p-single__note {}
+
+// .p-single__manager {}
+
+.p-single__skill {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    span {
+        display: inline-block;
+        color: #FFF;
+        padding: 10px 20px;
+        background: #3B9023; 
+        border-radius: 30px;
+    }
+}
+
+
+/*================================================================
+製作期間
+================================================================*/
+
+// .p-single__date {}
+
+// .p-single__time {}
+
+// .p-single__day {}
+
+/*================================================================
+制作概要
+================================================================*/
+
+// .p-single__outline {}
+
+.p-single__outlineText {
+    white-space: pre-wrap;
+    line-height: 26px;
+    text-align: justify;
+}
+
+/*================================================================
+デザイン
+================================================================*/
+
+// .p-single__design {}
+
+// .p-single__designManager {}
+
+.p-single__designUrl {
+    display: inline-block;
+    color: #547443;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    padding-bottom: 5px;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+
+/*================================================================
+ページネーション
+================================================================*/
+
+.p-single__pagenetion {
+    display: flex;
+    justify-content: center;
+    gap: min(calc(20 / global.$design-sp-width * 100vw),20px);
+    margin-top: 56px;
+}
+
+.p-single__btn {
+    a {
+        display: inline-block;
+        width: 80px;
+        height: 50px;
+        background: #3B9023;
+        border: 3px solid #3B9023;
+        border-radius: 10px;
+        position: relative;
+        transition: all 0.5s ease;
+
+        @include global.mq('sp') {
+            width: 60px;
+        }
+
+        &:hover {
+            background-color: #64BCFC;
+        }
+    }
+}
+
+.p-single__btn--prev {
+    a {
+        padding-left: 2px;
+        
+        &::before {
+            content: "";
+            width: 25px;
+            height: 25px;
+            background: url(../img/common/tryangle-white.png) no-repeat center center / contain;
+            position: absolute;
+            top: 50%;
+            left: 55%;
+            transform: translate(-50%,-50%) scaleX(-1);
+        }
+    }
+}
+
+
+.p-single__btn--next {
+    a {
+        padding-left: 2px;
+      
+        &::before {
+            content: "";
+            width: 25px;
+            height: 25px;
+            background: url(../img/common/tryangle-white.png) no-repeat center center / contain;
+            position: absolute;
+            top: 50%;
+            left: 45%;
+            transform: translate(-50%,-50%);
+        }
+    } 
+}
+
+.p-single__btn--none {
+    opacity: 0;
+}
+
+.p-single__archive {
+    a {
+        display: inline-block;
+        color: #FFF;
+        line-height: 44px;
+        letter-spacing: 2px;
+        white-space: nowrap;
+        padding-inline: 20px;
+        background: #3B9023;
+        border: 3px solid #3B9023;
+        border-radius: 10px;
+        transition: all 0.5s ease;
+
+        @include global.mq('sp') {
+            font-size: min(calc(18 / global.$design-sp-width * 100vw),18px);
+            padding-inline: 10px;
+        }
+
+        &:hover {
+            background-color: #64BCFC;
+        }
+    }
+}
+

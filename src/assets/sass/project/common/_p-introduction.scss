@@ -1,0 +1,341 @@
+@use "../../global" as global;
+
+
+.p-introduction {
+    background: #DFFF83;
+
+    /*=====  本音の扉  =====*/
+    &.is-honne {
+        background: linear-gradient(to top right,#FFF,#012b68 50% 100%);
+        color: #FFF;
+    }
+}
+
+// .p-introduction__inner {}
+
+.p-introduction__title {
+    width: fit-content;
+    margin-inline: auto;
+    position: relative;
+}
+
+.p-introduction__content {
+    max-width: 860px;
+    white-space: nowrap;
+    margin-inline: auto;
+    margin-top: 40px;
+    position: relative;
+    
+    @include global.mq('tab') {
+        max-width: 700px;
+    }
+    
+    @include global.mq('sp') {
+        max-width: 500px;
+        width: calc(280 / global.$design-sp-width * 100vw);
+    }
+}
+
+.p-introduction__text {
+    line-height: 24px;
+    white-space: pre-wrap;
+
+    @include global.mq('tab') {
+        text-align: justify;
+    }
+
+    @include global.mq('sp') {
+        font-size: min(calc(18 / global.$design-sp-width * 100vw),20px);
+    }
+}
+
+.p-introduction__itemWrap {
+    display: flex;
+    justify-content: center;
+    gap: min(calc(75 / global.$design-pc-width * 100vw),75px);
+    margin-top: 30px;
+
+    @include global.mq('sp') {
+        flex-wrap: wrap;
+        gap:calc(40 / global.$design-sp-width * 100vw);
+    }
+}
+
+.p-introduction__itemWrap--about {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 110px);
+    grid-gap: 50px 70px;
+    margin-top: 30px;
+
+    
+    @include global.mq('sp') {
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, min(calc(80 / global.$design-sp-width * 100vw),80px));
+        grid-gap: 40px calc(20 / global.$design-sp-width * 100vw);
+    }
+}
+
+.p-introduction__item {
+    flex: 0 0 120px;
+    text-align: center;
+
+    @include global.mq('sp') {
+        flex: unset;
+        width: min(calc(120 / global.$design-sp-width * 100vw),120px);
+    }
+
+    &:hover  {
+        .p-introduction__itemImg { 
+            box-shadow: 0 1px 3px #000;
+        }
+
+        .p-introduction__itemName {  
+            color: #64BCFC;
+        }
+    }
+
+    /*=====  本音の扉  =====*/
+    &.is-honne:hover .p-introduction__itemImg { 
+        box-shadow: 1px 1px 3px #FFF;
+    }
+}
+
+.p-introduction__item--about {
+    text-align: center;
+
+    &:hover  {
+        .p-introduction__itemImg { 
+            box-shadow: 0 1px 3px #000;
+        }
+        .p-introduction__itemName {  
+            color: #64BCFC;
+        }
+    }
+}
+
+.p-introduction__itemImg {
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+.p-introduction__itemName {
+    margin-top: 8px;
+    transition: all 0.5s ease;
+    white-space: normal;
+
+    @include global.mq('sp') {
+        font-size: min(calc(20 / global.$design-sp-width * 100vw),20px);
+    }
+}
+
+.p-introduction__itemName--about {
+    @include global.mq('sp') {
+        font-size: min(calc(16 / global.$design-sp-width * 100vw),16px);
+    }
+}
+
+.p-introduction__more {
+    text-align: right;
+    margin-top: 30px;
+    @include global.mq('tab') {
+        margin-left: 12%;
+    }
+    @include global.mq('sp') {
+        margin-left: unset;
+    }
+    
+    a {
+        font-size: 24px;
+        padding-left: 45px;
+        transition: all 0.5s ease;
+        position: relative;
+
+        @include global.mq('sp') {
+            font-size: min(calc(20 / global.$design-sp-width * 100vw),20px);
+            padding-left: 35px;
+        }
+        
+        &::before {
+            content: "";
+            width: 25px;
+            height: min(calc(20 / global.$design-sp-width * 100vw),20px);
+            background: url(../img/common/arrow.png) no-repeat center right / contain;
+            position: absolute;
+            top: 53%;
+            left: 0;
+            transform: translateY(-50%);
+            transition: all 0.5s ease;
+
+            @include global.mq('sp') {
+                top: 50%;
+            }
+        }
+
+        &:hover {
+            color: global.$sub-color1;
+            
+            &::before {
+                background-image: url(../img/common/arrow-blue.png);
+                left: 15px;
+                @include global.mq('sp') {
+                    left: 10px;
+                }
+            }
+        }
+    }
+
+    /*=====  本音の扉  =====*/
+    &.is-honne a {
+        &::before {
+            background-image: url(../img/common/arrow-white.png);
+        }
+        &:hover::before {
+            background-image: url(../img/common/arrow-blue.png);
+        }
+        
+    }
+}
+
+
+/*================================================================
+装飾  クローバー
+================================================================*/
+
+.p-introduction__clover {
+    /*=====  本音の扉  =====*/
+    &.is-honne {
+        #clover-out {
+            fill: rgb(17, 4, 89);
+        }
+        #clover-in {
+            fill: rgb(226, 230, 255);
+        }
+    }
+}
+
+/*================================================================
+front-page
+================================================================*/
+
+.p-introduction__clover1 {    
+    width: min(calc(150 / global.$design-sp-width * 100vw),150px);
+    height: min(calc(150 / global.$design-sp-width * 100vw),150px);
+    position: absolute;
+    top: 115%;
+    right: min(calc(820 / global.$design-pc-width * 100vw),820px);
+    transform: translateY(-50%) rotate(-35deg);
+    transition: all 1s ease ;
+
+    @include global.mq('sp') {
+        top: 110%;
+        right: unset;
+        left: 0;
+    }
+    
+    &:hover {
+        transform: translateY(-50%) rotate(330deg);
+    }
+}
+
+.p-introduction__clover2 {
+    width: min(calc(100 / global.$design-sp-width * 100vw),100px);
+    height: min(calc(100 / global.$design-sp-width * 100vw),100px);
+    position: absolute;
+    bottom: -37%;
+    right:  calc(min(calc(820 / global.$design-pc-width * 100vw),820px) - 120px);
+    transition: all 1s ease ;
+
+    @include global.mq('sp') {
+        bottom: -22%;
+        right: unset;
+        left: min(calc(160 / global.$design-sp-width * 100vw),160px);
+    }
+
+    &:hover {
+        transform: rotate(365deg);
+    }
+}
+
+
+
+/*================================================================
+about
+================================================================*/
+
+.p-introduction__clover3 {    
+    width: min(calc(130 / global.$design-sp-width * 100vw),130px);
+    height: min(calc(130 / global.$design-sp-width * 100vw),130px);
+    position: absolute;
+    top: 108%;
+    right: min(calc(900 / global.$design-pc-width * 100vw),850px);
+    transform: translateY(-50%) rotate(-35deg);
+    transform: rotate(-35deg);
+    transition: all 2s ease ;
+
+    @include global.mq('sp') {
+        top: calc(100% + 25px);
+        right: unset;
+        left: 0;
+    }
+    
+    &:hover {
+        transform: rotate(330deg);
+    }
+}
+
+.p-introduction__clover4 {
+    width: min(calc(100 / global.$design-sp-width * 100vw),100px);
+    height: min(calc(100 / global.$design-sp-width * 100vw),100px);
+    position: absolute;
+    top: 115%;
+    right:  calc(min(calc(900 / global.$design-pc-width * 100vw),850px) - 120px);
+    transition: all 2s ease ;
+
+    @include global.mq('sp') {
+        top: calc(100% + 50px);
+        right: unset;
+        left: min(calc(160 / global.$design-sp-width * 100vw),160px);
+    }
+
+    &:hover {
+        transform: rotate(365deg);
+    }
+}
+
+
+.p-introduction__clover5 {    
+    width: min(calc(130 / global.$design-sp-width * 100vw),130px);
+    height: min(calc(130 / global.$design-sp-width * 100vw),130px);
+    position: absolute;
+    top: 108%;
+    left: min(calc(900 / global.$design-pc-width * 100vw),850px);
+    transition: all 2s ease ;
+
+    @include global.mq('sp') {
+        display: none;
+    }
+    
+    &:hover {
+        transform: rotate(360deg);
+    }
+}
+
+.p-introduction__clover6 {
+    width: min(calc(100 / global.$design-sp-width * 100vw),100px);
+    height: min(calc(100 / global.$design-sp-width * 100vw),100px);
+    position: absolute;
+    top: 115%;
+    left:  calc(min(calc(900 / global.$design-pc-width * 100vw),850px) - 120px);
+    transform: rotate(-25deg);
+    transition: all 1s ease ;
+
+    @include global.mq('sp') {
+        display: none;
+    }
+
+    &:hover {
+        transform: rotate(335deg);
+    }
+}

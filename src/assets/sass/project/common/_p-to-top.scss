@@ -1,0 +1,25 @@
+@use "../../global" as global;
+
+.p-to-top {
+    display: none;
+    width: 80px;
+    height: 80px;
+    background: url(../img/common/to-top.svg) no-repeat center center / contain;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: map-get($map: global.$layer, $key: footer);
+    transition: all 0.5s ease ;
+
+    @include global.mq('sp') {
+        width: 50px;
+        height: 50px;
+        top: 5px;
+        right: 76px;
+        z-index: map-get($map: global.$layer, $key: header);
+    }
+
+    &.is-active {
+        opacity: 0;
+    }
+}

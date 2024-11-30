@@ -1,0 +1,161 @@
+@use "../../global" as global;
+
+.p-service-news {
+    background: #D8FF98;
+}
+
+.p-service-news__inner {
+    max-width: 900px;
+    position: relative;
+}
+
+.p-service-news__wrap {
+    margin-top: 48px;
+}
+
+.p-service-news__itemWrap {
+    & + & {
+        margin-top: 16px;
+    }
+
+    &:nth-child(n+4) {
+        display: none;
+    }
+}
+
+.p-service-news__item {
+    display: flex;
+    gap: 30px;
+    padding-inline: 90px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #000 ;
+    position: relative;
+
+    @include global.mq('sp') {
+        display: block;
+        font-size: 16px;
+        padding-inline: 10px;
+    }
+}
+
+.p-service-news__new {
+    color: #ED1A3D;
+    font-size: 16px;
+    position: absolute;
+    top: 2px;
+    left: 30px;
+
+    @include global.mq('sp') {
+        top: 0;
+        left: 120px;
+    }
+}
+
+.p-service-news__date {
+    color: #547443;
+}
+
+.p-service-news__text {
+    @include global.mq('sp') {
+        margin-top: 10px;
+    }
+}
+
+.p-service-news__btn {
+    text-align: right;
+    margin-top: 20px;
+
+    button {
+        background: transparent;
+        padding-left: 40px;
+        position: relative;
+        transition: all 0.5s ease;
+
+        @include global.mq('sp') {
+            font-size: 16px;
+        }
+        
+        &::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background: url(../img/common/arrow.png) no-repeat center center / contain;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            transition: all 0.5s ease;
+
+            @include global.mq('sp') {
+                top: 55%;
+            }
+        }
+
+        &:hover {
+            color: #64BCFC;
+
+            &::before {
+                left: 15px;
+                background-image: url(../img/common/arrow-blue.png);
+            }
+        }
+    }
+
+    &.is-active button {
+        &::before {
+            transform:  translateY(-50%) rotate(-90deg);        
+        }
+
+        &:hover {
+            &::before {
+               top: 0;
+               left: 0;        
+            }
+        }
+    }
+        
+}
+
+/*================================================================
+装飾
+================================================================*/
+
+// .p-service-news__clover {}
+
+.p-service-news__clover1 {
+    width: clamp(105px,calc(120 / global.$design-sp-width * 100vw),150px);
+    height: min(calc(150 / global.$design-sp-width * 100vw),150px);
+    position: absolute;
+    bottom: -200px;
+    right: min(calc(890 / global.$design-pc-width * 100vw),890px);
+    transform: translateY(-50%) rotate(-35deg);
+    transition: all 1s ease ;
+
+    @include global.mq('sp') {
+        right: unset;
+        left: 0;
+    }
+    
+    &:hover {
+        transform: translateY(-50%) rotate(330deg);
+    }
+}
+
+.p-service-news__clover2 {
+    width: min(calc(100 / global.$design-sp-width * 100vw),100px);
+    height: min(calc(100 / global.$design-sp-width * 100vw),100px);
+    position: absolute;
+    bottom: -120px;
+    right:  calc(min(calc(890 / global.$design-pc-width * 100vw),890px) - 120px);
+    transition: all 1s ease ;
+
+    @include global.mq('sp') {
+        right: unset;
+        left: calc(min(calc(120 / global.$design-sp-width * 100vw),150px) + 30px);
+    }
+
+    &:hover {
+        transform: rotate(365deg);
+    }
+}
+

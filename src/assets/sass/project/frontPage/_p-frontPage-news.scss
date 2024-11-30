@@ -1,0 +1,233 @@
+@use "../../global" as global;
+
+
+/*================================================================
+p-frontPage-news
+================================================================*/
+
+.p-frontPage-news {
+    padding-block: 70px;
+    background: #FFF;
+
+    /*=====  本音の扉  =====*/
+    &.is-honne {
+        background: #000;
+    }
+}
+
+.p-frontPage-news__inner {
+    max-width: 900px;
+    width: calc(335 / global.$design-sp-width * 100vw);
+    background: #dff655;
+    border-radius: 20px;
+    padding: 40px min(calc(20 / global.$design-sp-width * 100vw),40px);
+    padding-block: 40px;
+    outline: 8px solid rgba(#547443,0.5);
+    outline-offset: -20px;
+    position: relative;
+
+    @include global.mq('sp') {
+        outline-width: 5px;
+        outline-offset: -10px;
+    }
+
+    &::before {
+        content: "";
+        width: min(calc(270 / global.$design-sp-width * 100vw),270px);
+        height: 25px;
+        background: #dff655;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /*=====  本音の扉  =====*/
+    &.is-honne {
+        color: #e6e6e6;
+        background: #012b68;
+        outline-color: #e6e6e6;
+
+        &::before {
+            background: #012b68;
+        }
+    }
+}
+
+// 装飾
+.p-frontPage-news__symbol {
+    width: min(calc(270 / global.$design-sp-width * 100vw),270px);
+    height: 70px;
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    /*=====  本音の扉  =====*/
+    &.is-honne {
+        #symbol-3 {
+            fill: #e6e6e6;
+        }
+    }
+}
+
+.p-frontPage-news__wrap {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 40px;
+
+    @include global.mq('sp') {
+        display: block;
+    }
+}
+
+.p-frontPage-news__content {
+    flex: 0 1 580px;
+}
+
+.p-frontPage-news__title {
+    font-size: 24px;
+}
+
+.p-frontPage-news__text {
+    color: #383838 !important;
+    font-weight: 400;
+    min-height: 215px;
+    padding: 15px;
+    line-height: 24px;
+    background: #FFF;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 15px;
+    white-space: pre-wrap;
+    position: relative;
+    z-index: 1;
+
+    @include global.mq('sp') {
+        margin-right: 0;
+    }
+
+    &::before {
+        content: "";
+        width: 0px;
+        height: 0px;
+        border: 35px solid ;
+        border-color: transparent transparent #fff #fff;
+        border-radius: 0 0 0 10px;
+        position: absolute;
+        top: 75px;
+        right: calc(100% - 36px);
+        transform: translateY(-50%) scaleY(0.5) rotate(45deg) ;
+
+        @include global.mq('sp') {
+            border-width: 50px;
+            border-color: transparent transparent #fff transparent;
+            border-radius: 0;
+            right: unset;
+            top: calc(100% - 110px + min(calc(30 / global.$design-sp-width * 100vw),30px));
+            left: min(calc(10 / global.$design-sp-width * 100vw 
+                    + min(calc(120 / global.$design-sp-width * 100vw),120px)),128px);
+            transform: rotate(-35deg);
+            z-index: -1;
+        }
+    }
+}
+ 
+.p-frontPage-news__img {
+    flex: 0 0 200px;
+    height: 300px;
+    position: relative;
+
+    &::before {
+        content: "";
+        width: 120%;
+        height: 120%;
+        background: url(../img/top/happybear.png) no-repeat top center / contain;
+        transform: scaleX(-1);
+        position: absolute;
+        top: 0;
+        left: -13%;
+    }
+
+    @include global.mq('sp') {
+        width: 180px;
+        height: 270px;
+        margin-top: 10px;
+        margin-left: calc(10 / global.$design-sp-width * 100vw);
+
+        &::before {
+            content: "";
+            width: 109%;
+            left: -5%;
+        }
+    }
+
+    /*=====  本音の扉  =====*/
+    &.is-honne {
+        &::before {
+            background: url(../img/top/hungrybear.png) no-repeat top center / contain;
+            transform: unset;
+            left: -10%;
+        }
+
+        @include global.mq('sp') {
+            &::before {
+                top: 3%;
+            }
+        }
+    }
+}
+
+.p-frontPage-news__link {
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 15px;
+
+    @include global.mq('sp') {
+        margin-right: 0;
+    }
+
+    a {
+        font-size: min(calc(24 / global.$design-sp-width * 100vw),24px);
+        text-decoration: underline;
+        text-underline-offset: 5px;
+        position: relative;
+        transition: all 0.5s ease;
+        
+        &::before {
+            content: "";
+            width: 25px;
+            height: 25px;
+            background: url(../img/common/arrow.png) no-repeat center center / contain;
+            position: absolute;
+            top: calc(50% + 2px);
+            right: calc(100% + min(calc(10 / global.$design-sp-width * 100vw),20px));
+            transform: translateY(-50%);
+            transition: all 0.5s ease;
+        }
+        
+        &:hover {
+            color: #ED1A3D;
+            
+            &::before {
+                background-image: url(../img/common/arrow-red.png);
+                right: calc(100% + 5px);
+            }
+        }
+    }
+    
+    /*=====  本音の扉  =====*/
+    &.is-honne a {
+        &:before {
+            background-image: url(../img/common/arrow-white.png);
+        }
+        &:hover:before {
+            background-image: url(../img/common/arrow-red.png);
+        }
+    }
+}
+
+
+
+

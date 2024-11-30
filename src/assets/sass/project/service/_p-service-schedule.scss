@@ -1,0 +1,32 @@
+@use "../../global" as global;
+
+/*================================================================
+schedule スケジュール
+================================================================*/
+
+
+.p-service-schedule {
+    background: #DBFEA3;
+}
+
+// .p-service-schedule__inner {}
+
+.p-service-schedule__content {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.p-service-schedule__schedule {
+    display: inline-block;
+    border: 5px solid #3B9023;
+    border-radius: 10px;
+
+    max-width: 900px;
+    width: 95%;
+    height: min(calc(500 / global.$design-sp-width * 100vw),700px);
+
+    iframe {
+        border-radius: 5px;
+    }
+
+}

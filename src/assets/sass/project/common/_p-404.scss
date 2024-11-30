@@ -1,0 +1,28 @@
+@use "../../global" as global;
+
+
+.p-404 {
+    max-width: 1160px;
+    width: calc(335 / global.$design-sp-width * 100vw);
+    margin-inline: auto;
+    margin-block: 180px 150px;
+}
+
+.p-404__top {
+    font-size: 72px;
+    color: rgba(global.$text-color1,0.5);
+}
+
+.p-404__title {
+    font-size: 32px;
+    margin-top: 30px;
+    padding-bottom: 50px;
+    border-bottom: 3px solid rgba(global.$text-color1,0.5);
+}
+
+.p-404__text {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-top: 50px;
+}
+

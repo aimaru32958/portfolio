@@ -1,0 +1,36 @@
+@use "./global" as global;
+
+
+/*================================================================
+l-top
+================================================================*/
+
+.l-top {
+
+    background: url(../img/common/page-top.png) no-repeat top center / cover;
+    padding-block: 100px;
+    position: relative;
+
+    @include global.mq('sp') {
+        background-position: top right -310px;
+    }
+}
+
+// .l-top__inner {}
+
+.l-top__titleWrap {
+    text-align: center;
+    color: #FFF;
+}
+
+.l-top__title {
+    font-size: 40px;
+    text-shadow: #000 1px 0 10px;
+}
+
+.l-top__subTitle {
+    font-size: 24px;
+    margin-top: 16px;
+    text-shadow: #000 1px 0 10px;
+}
+

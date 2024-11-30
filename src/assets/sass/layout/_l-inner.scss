@@ -1,0 +1,15 @@
+@use "../global" as global;
+
+
+.l-inner {
+    max-width: global.$inner-width;
+    width:calc(1160 / global.$design-pc-width * 100vw);
+    margin-inline: auto;
+
+    @include global.mq('sp') {
+        width: calc(335 / global.$design-sp-width * 100vw);
+    }
+}
+
+
+

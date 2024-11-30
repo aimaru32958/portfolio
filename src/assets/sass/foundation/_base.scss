@@ -1,0 +1,108 @@
+@use "../global" as global;
+
+/*================================================================
+BASE
+================================================================*/
+
+body {
+  color: global.$text-color1;
+  font-family: global.$ff-base;
+  font-size: global.$fz-base;
+  font-weight: global.$fw-base;
+  line-height: global.$lh-base;
+  
+  position: relative;
+
+  overflow-x: hidden;
+}
+
+/*================================================================
+PC
+================================================================*/
+
+.is-pc {
+  @include global.mq('tab') {
+    display: none ;
+  }
+}
+
+/*================================================================
+PC  タブレット
+================================================================*/
+
+.is-pc-tab {
+  @include global.mq('sp') {
+    display: none;
+  }
+}
+/*================================================================
+PC  スマホ
+================================================================*/
+.is-pc-sp {
+  @include global.mq('pc') {
+    display: block;
+  }
+  @include global.mq('tab') {
+    display: none;
+  }
+  @include global.mq('sp') {
+    display: block;
+  }
+}
+
+/*================================================================
+タブレット
+================================================================*/
+
+.is-tab {
+  @include global.mq('pc') {
+    display: none;
+  }
+  @include global.mq('tab') {
+    display: block;
+  }
+  @include global.mq('sp') {
+    display: none;
+  }
+}
+
+/*================================================================
+タブレット  スマホ
+================================================================*/
+.is-tab-sp {
+  @include global.mq('pc') {
+    display: none;
+  }
+}
+
+/*================================================================
+スマホ
+================================================================*/
+
+.is-sp {
+  @include global.mq('pc') {
+    display: none;
+  }
+  @include global.mq('tab') {
+    display: none;
+  }
+  @include global.mq('sp') {
+    display: block;
+  }
+}
+
+/*================================================================
+スマホ デザインカンプ以下
+================================================================*/
+
+.is-dsp {
+  @include global.mq('pc') {
+    display: none;
+  }
+  @include global.mq('tab') {
+    display: none;
+  }
+  @include global.mq('dsp') {
+    display: block;
+  }
+}

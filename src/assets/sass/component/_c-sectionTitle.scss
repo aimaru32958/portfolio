@@ -1,0 +1,36 @@
+@use "../global" as global;
+
+
+.c-sectionTitle {
+    font-size: min(calc(35 / global.$design-sp-width * 100vw),35px);
+    text-align: center;
+}
+
+.c-sectionSubTitle {
+    text-align: center;
+    margin-top: 5px;
+}
+
+/*================================================================
+contact
+================================================================*/
+.c-sectionTitle--contact {
+    color: #FFF;
+    font-size: global.$fz-title;
+    text-align: center;
+    text-shadow:  4px 4px 4px #383838, -4px -4px 4px #383838,
+                 -4px 4px 4px #383838,  4px -4px 4px #383838,
+                  4px   0 4px #383838, -4px    0 4px #383838,
+                    0 4px 4px #383838,    0 -4px 4px #383838;
+}
+
+.c-sectionSubTitle--contact {
+    color: #FFF;
+    text-align: center;
+    margin-top: 5px;
+    text-shadow:  3px 3px 3px #383838, -3px -3px 3px #383838,
+                 -3px 3px 3px #383838,  3px -3px 3px #383838,
+                  3px   0 3px #383838, -3px    0 3px #383838,
+                    0 3px 3px #383838,    0 -3px 3px #383838;
+}
+

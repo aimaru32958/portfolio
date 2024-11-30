@@ -1,0 +1,24 @@
+@use "../global" as global;
+
+.u-section {
+    padding-block: 100px 150px;
+}
+
+.u-section--fpPrice {
+    padding-block: 120px 150px;
+}
+
+.u-section--introduction {
+    padding-block: 100px 170px;
+}
+.u-section--introduction-ab {
+    padding-block: 100px 220px;
+    
+    @include global.mq('sp') {
+        padding-block: 100px 200px;
+    }
+}
+
+.u-section--news {
+    padding-block: 100px 170px;
+}

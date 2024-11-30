@@ -1,0 +1,82 @@
+@use "../../global" as global;
+
+
+
+/*================================================================
+鳥  bird
+================================================================*/
+.p-hover--bird {
+    display: none;
+    width: 750px;
+    height: 250px;
+    background:  no-repeat center center / contain ;
+    position: absolute;
+    bottom: calc(100% - 21px);
+    left: -50%;
+    pointer-events: none;
+    
+    @include global.mq('sp') {
+        display: none!important;
+    }
+}
+
+
+/*================================================================
+蛇 snake
+================================================================*/
+.p-hover--snake {
+    display: none;
+    width: 400px;
+    height: 200px;;
+    background:  no-repeat center center / contain ;
+    position: absolute;
+    top: 64%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+
+    @include global.mq('sp') {
+        display: none!important;
+    }
+}
+
+
+
+/*================================================================
+リス risu
+================================================================*/
+.p-hover--risu {
+    display: none;
+    width: 350px;
+    height: 200px;;
+    background:  no-repeat center center / contain ;
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+
+    @include global.mq('sp') {
+        display: none!important;
+    }
+}
+
+
+/*================================================================
+キノコ mush
+================================================================*/
+.p-hover--mush {
+    display: none;
+    width: 250px;
+    height: 80px;;
+    background:  no-repeat center center / contain ;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+
+    @include global.mq('sp') {
+        display: none!important;
+    }
+}

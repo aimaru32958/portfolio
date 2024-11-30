@@ -1,0 +1,32 @@
+@use "../../global" as global;
+
+
+/*================================================================
+p-frontPage-works
+================================================================*/
+
+
+.p-frontPage-works {
+    background: #D6E5FD;
+
+    /*=====  本音の扉  =====*/
+    &.is-honne {
+        background: #383838;
+        color: #FFF;
+    }
+}
+
+// .p-frontPage-works__inner {}
+
+.p-frontPage-works__itemWrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 40px;
+    
+    @include global.mq('tab') {
+        display: block;
+    }
+}
+
+// p-workへ

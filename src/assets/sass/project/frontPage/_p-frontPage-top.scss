@@ -1,0 +1,249 @@
+@use "../../global" as global;
+
+
+/*================================================================
+p-frontPage-top
+================================================================*/
+
+
+.p-frontPage-top {
+    width: 100％;
+    height: 600px;
+    background: url(../img/top/top-pc.png) no-repeat center center / cover;
+    position: relative;
+    clip-path: inset(0);
+    
+    @include global.mq('sp') {
+        height: 550px;
+        background: url(../img/top/top-sp.png) no-repeat center center / cover;
+    }
+}
+
+/*===  本音の扉  ===*/
+// メインビジュアル背景
+.p-frontPage-top {
+    &.is-honne {
+        background: url(../img/top/top-night-pc.png) no-repeat center center /  cover;
+        
+        @include global.mq('sp') {
+            background: url(../img/top/top-night-sp.png) no-repeat center center /  cover;
+        }
+    }
+}
+
+.p-frontPage-top__inner {
+    max-width: 1000px;
+    width: calc(1000 / global.$design-pc-width * 100vw);
+    position: relative;
+    height: inherit;
+}
+
+.p-frontPage-top__title {
+    font-size: 64px;
+    color: global.$text-color2;
+    font-weight: 700;
+    text-align: right;
+    white-space: nowrap;
+    text-shadow:  4px 4px 4px #383838, -4px -4px 4px #383838,
+                 -4px 4px 4px #383838,  4px -4px 4px #383838,
+                  4px   0 4px #383838, -4px    0 4px #383838,
+                    0 4px 4px #383838,    0 -4px 4px #383838;
+    position: absolute;
+    top: 61%;
+    left: 0px;
+    z-index: 1;
+
+    @include global.mq('sp') {
+        font-size: min(calc(34 / global.$design-sp-width * 100vw),50px);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    strong {
+        font-size: min(calc(64 / global.$design-sp-width * 100vw),94px);
+        color: #ED1A3D;
+        margin-right: min(calc(5 / global.$design-sp-width * 100vw),20px);
+        text-shadow:  10px 10px 6px #FFF, -10px -10px 6px #FFF,
+                        -10px 10px 6px #FFF,  10px -10px 6px #FFF,
+                         10px   0 6px #FFF, -10px    0 6px #FFF,
+                           0 10px 6px #FFF,    0 -10px 6px #FFF;
+        position: relative;
+        transition: 0.5s all ease;
+
+        // 輝き                
+        &::before {
+            content: "";
+            width: 150%;
+            height: 90%;
+            background: #FFF;
+            position: absolute;
+            top: 52%;
+            left: 54%;
+            transform: translate(-50%,-50%) skew(-62deg, -20deg);
+            box-shadow: 10px 10px 4px #FFF, -10px -10px 4px #FFF,
+                       -10px 10px 4px #FFF,  10px -10px 4px #FFF,
+                        10px   0  4px #FFF, -10px     0 4px #FFF,
+                           0 10px  4px #FFF,    0 -10px 4px #FFF;
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+
+        // 輝き 
+        &::after {
+            content: "";
+            width: 70%;
+            height: 90%;
+            background: #FFF;
+            position: absolute;
+            top: 55%;
+            left: 48%;
+            transform: translate(-50%,-50%) skew(60deg, 20deg);
+            box-shadow: 10px 10px 3px #FFF, -10px -10px 3px #FFF,
+                       -10px 10px 3px #FFF,  10px -10px 3px #FFF,
+                        10px   0 3px #FFF, -10px    0 3px #FFF,
+                          0 10px 3px #FFF,    0 -10px 3px #FFF;
+            z-index: -1;
+        }
+
+        // &::before {
+        //     content: "";
+        //     width: 582px;
+        //     height: 265px;
+        //     background: url(../img/top/光.png) no-repeat center center / contain;
+        //     position: absolute;
+        //     top: -45%;
+        //     left: -102%;
+        //     z-index: -1;
+        // }
+
+        // &:hover:before {}
+    }
+
+    span {
+        display: inline-block;
+        margin-top: 40px;
+        position: relative;
+    
+        // 上の行の下線
+        &::before {
+            content: "";
+            max-width: 550px;
+            width: max(calc(550 / 1000 * 100vw),540px);
+            height: 5px;
+            background: #FFF;
+            position: absolute;
+            top: -28px;
+            right: -6px;
+            box-shadow:  3px 3px 3px #383838, -3px -3px 3px #383838,
+                        -3px 3px 3px #383838,  3px -3px 3px #383838,
+                         3px   0 3px #383838, -3px    0 3px #383838,
+                           0 3px 3px #383838,    0 -3px 3px #383838;
+
+            @include global.mq('sp') {
+                width: min(calc(315 / global.$design-sp-width * 100vw),460px);
+            }
+        }
+                        
+        // 下の行の下線
+        &::after {
+            content: "";
+            width:110%;
+            height: 5px;
+            background: #FFF;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow:  3px 3px 3px #383838, -3px -3px 3px #383838,
+                        -3px 3px 3px #383838,  3px -3px 3px #383838,
+                            3px   0 3px #383838, -3px    0 3px #383838,
+                            0 3px 3px #383838,    0 -3px 3px #383838;
+                            
+        }
+    }
+    
+    /*=====  本音の扉  =====*/
+    &.u-back {
+        color: #383838;
+        text-shadow:  4px 4px 4px #FFF, -4px -4px 4px #FFF,
+                        -4px 4px 4px #FFF,  4px -4px 4px #FFF,
+                        4px   0 4px #FFF, -4px    0 4px #FFF,
+                        0 4px 4px #FFF,    0 -4px 4px #FFF;
+
+        span {
+            &::after,&::before{
+                background: #383838;
+                box-shadow:  3px 3px 3px #3FFF, -3px -3px 3px #FFF,
+                            -3px 3px 3px #FFF,   3px -3px 3px #FFF,
+                                3px   0 3px #FFF,  -3px    0 3px #FFF,
+                                0 3px 3px #FFF,     0 -3px 3px #FFF;
+            }
+        }
+
+        &::before {
+            content: "家族のために";
+            width: fit-content;
+            height: auto;
+            font-size: min(calc(16 / global.$design-sp-width * 100vw),26px);
+            position: absolute;
+            bottom: calc(100% + 12px);
+            left: 2%;
+            text-shadow:  2px 2px 2px #FFF, -2px -2px 2px #FFF,
+            -2px 2px 2px #FFF,  2px -2px 2px #FFF,
+            2px   0 2px #FFF, -2px    0 2px #FFF,
+            0 2px 2px #FFF,    0 -2px 2px #FFF;
+        }
+    }
+    
+}
+
+.p-frontPage-top__icon {
+    position: absolute;
+    top: 50px;
+    right: 0;
+
+    @include global.mq('sp') {
+        top: 30px;
+        right: unset;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &:hover .p-frontPage-top__img {
+        @keyframes iconAnimation {
+            25% {
+                transform: rotate(20deg); 
+            }
+            75% {
+                transform: rotate(-20deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+        animation: iconAnimation 1s linear infinite forwards;
+    }
+}
+
+.p-frontPage-top__img {
+    width: 200px;
+    height: 200px;
+}
+
+.p-frontPage-top__name {
+    color: #FFF;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 16px;
+    text-shadow:  1px 0 10px #383838;
+    
+    @include global.mq('sp') {
+        margin-top: 8px;
+    }
+}
+
+
+
+
+
+

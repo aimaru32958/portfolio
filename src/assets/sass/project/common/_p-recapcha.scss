@@ -1,0 +1,10 @@
+@use "../../global" as global;
+
+.grecaptcha-badge {
+    right: -250px!important;
+    transition: all 0.5s ease;
+
+    &:hover {
+        right: -186px!important;
+    }
+}

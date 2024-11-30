@@ -1,0 +1,280 @@
+@use "../../global" as global;
+
+/*================================================================
+p-about-profile
+================================================================*/
+
+.p-about-profile {
+    background: #EBB7B7 url(../img/common/bg-about.svg) no-repeat center center / cover;
+
+
+    @include global.mq('sp') {
+        background: #EBB7B7 url(../img/common/bg-sp.svg) no-repeat top center / cover;
+    }
+}
+
+.p-about-profile__inner {
+    max-width: 1000px;
+    width: calc(1000 / global.$design-pc-width * 100vw);
+    width: 90%;
+
+    @include global.mq('sp') {
+        width: calc(335 / global.$design-sp-width * 100vw);
+    }
+}
+
+.p-about-profile__title {
+    font-size: 48px;
+    font-weight: 700;
+    text-shadow: 1px 0 10px #FFF;
+}
+
+/*================================================================
+名前 メッセージ
+================================================================*/
+
+.p-about-profile__mainWrap {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 32px;
+
+    @include global.mq('sp') {
+        display: block;
+    }
+}
+
+.p-about-profile__icon {
+    flex: 0 0 280px;
+    margin-inline: auto;
+    transform: scaleX(-1);
+
+    @include global.mq('sp') {
+        width: min(calc(280 / global.$design-sp-width * 100vw),280px);
+    }
+}
+
+.p-about-profile__textWrap {
+    flex: 0 1 550px;
+    position: relative;
+
+    @include global.mq('sp') {
+        max-width: 450px;
+        margin-inline: auto;
+        margin-top: 20px;
+    }
+}
+
+.p-about-profile__nameWrap {
+    display: flex;
+    color: #FFF;
+    text-shadow: 2px    0 2px #000, -2px    0 2px #000,
+                   0  2px 2px #000,    0 -2px 2px #000,
+                 2px  2px 2px #000, -2px -2px 2px #000,
+                 2px -2px 2px #000, -2px  2px 2px #000;
+    align-items: end;
+    position: absolute;
+    top: 15px;
+    left: 45px;
+    z-index: 2;
+    
+    @include global.mq('tab') {
+        left: min(calc(30 / 768 * 100vw),40px);
+    }
+    
+    @include global.mq('sp') {
+        display: block;
+        top: unset;
+        bottom: calc(100% + 75px - 94px);
+        left: calc(50% + 6px);
+        transform: translateX(-50%);
+    }
+}
+
+
+.p-about-profile__job {
+    font-size: 32px;
+    white-space: nowrap;
+    
+    @include global.mq('tab') {
+        font-size: min(calc(24 / global.$design-sp-width * 100vw),24px);
+    }
+}
+
+.p-about-profile__name {
+    font-size: 48px;
+    margin-left: 20px;
+    white-space: nowrap;
+    
+    @include global.mq('tab') {
+        font-size: min(calc(40 / global.$design-sp-width * 100vw),40px);
+    }
+
+    @include global.mq('sp') {
+        margin-left: 15px;
+        margin-top: 5px;
+    }
+}
+
+.p-about-profile__message {
+    text-align: justify;
+    line-height: 32px;
+    margin-top: 50px;
+    padding-block: 30px;
+    padding-inline: 25px;
+    background: #83ff61;
+    border-radius: 15px;
+    outline: 3px solid #547443;
+    outline-offset: -6px;
+    position: relative;
+    
+    @include global.mq('tab') {
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 43px;
+    }
+
+    @include global.mq('sp') {
+        font-size: 20px;
+        line-height: 32px;
+        margin-top: 75px;
+    }
+
+    // 枠線の一部削除
+    &::before {
+        content: "";
+        width: 440px;
+        height: 10px;
+        background: #83ff61;
+        position: absolute;
+        top: 0px;
+        left: 27px;
+        z-index: 1;
+
+        @include global.mq('tab') {
+            width: min(calc(343 / 768 * 100vw),350px);
+            left: min(calc(20 / 768 * 100vw),27px);
+        }
+
+        @include global.mq('sp') {
+            width: min(calc(190 / global.$design-sp-width * 100vw),190px);
+            left: calc(50% + 12px);
+            transform: translateX(-50%);
+        }
+    }
+
+}
+
+/*================================================================
+経歴  ステータス
+================================================================*/
+
+.p-about-profile__dataWrap {
+    display: flex;
+    gap: 48px;
+    padding-inline: 20px;
+    margin-top: 56px;
+
+    @include global.mq('sp') {
+        display: block;
+    }
+}
+
+.p-about-profile__item  {
+    background: #FFF;
+    border: 5px solid #547443;
+    border-radius: 10px;
+
+    & + & {
+        margin-top: 56px;
+    }
+
+    @include global.mq('sp') {
+        & + & {
+            margin-top: 32px;
+        }
+    }
+}
+
+.p-about-profile__itemTitle {
+    padding-left: 18px;
+    padding-block: 16px;
+    border-bottom: 3px solid #547443;
+    background: #9e7664;
+    border-radius: 4px 4px 0 0;
+
+    span {
+        display: inline-block;
+        color: #FFF;
+        font-size: 24px;
+        // padding-block: 4px 6px;
+        // padding-inline: 20px;
+        padding-left: 50px;
+        border-radius: 15px;
+        position: relative;
+
+        &::before {
+            content: "";
+            width: 40px;
+            height: 40px;
+            background: url(../img/common/hand.svg) no-repeat center center / contain;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.p-about-profile__itemText {
+    font-size: min(calc(18 / global.$design-sp-width * 100vw),18px);
+    padding-left: min(calc(18 / global.$design-sp-width * 100vw),18px);
+    padding-block: 16px;
+    line-height: 1.5;
+}
+
+/*================================================================
+経歴  実績
+================================================================*/
+
+.p-about-profile__resultWrap {
+    flex: 0 1 60%;
+}
+
+.p-about-profile__result {
+    .p-about-profile__itemText {
+        white-space: pre-wrap;
+    }
+}
+
+.p-about-profile__career {
+    // margin-top: 56px;
+
+    .p-about-profile__itemText {
+        white-space: pre-wrap;
+    }
+}
+
+
+/*================================================================
+拠点 年齢  長所  趣味  好きなもの
+================================================================*/
+
+.p-about-profile__statusWrap {
+    flex: 0 1 40%;
+
+    @include global.mq('sp') {
+        margin-top: 32px;
+    }
+}
+
+// .p-about-profile__base {}
+
+// .p-about-profile__age {}
+
+// .p-about-profile__point {}
+
+// .p-about-profile__hobby {}
+
+// .p-about-profile__favorite {}
+
