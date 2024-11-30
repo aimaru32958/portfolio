@@ -47,6 +47,7 @@ single 制作物詳細
     }
 }
 
+
 /*================================================================
 サムネイル
 ================================================================*/
@@ -72,13 +73,13 @@ single 制作物詳細
 
 .p-single__subTitle {
     display: inline-block;
+    width: fit-content;
     font-size: 24px;
     padding-inline: 50px;
     line-height: 50px;
     border: 2px solid #dede00;
     border-radius: 0px 20px 20px 0px;
     background: #ff0;
-    margin-top: 32px;
 
     @include global.mq('sp') {
         font-size: min(calc(20 / global.$design-sp-width * 100vw),20px);
@@ -86,15 +87,51 @@ single 制作物詳細
     }
 }
 
+.p-single__item {
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    margin-top: 32px;
+    position: relative;
+    z-index: 5;
+
+    @include global.mq('sp') {
+        margin-top: 20px;
+    }
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: calc(100% - 54px / 2);
+        background: rgba(#FFF , 0.8);
+        border-radius: 0 20px 20px 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+    }
+} 
+
+.p-single__itemContent {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 30px 30px;
+
+    @include global.mq('sp') {
+        padding: 16px 20px 20px;
+    }
+}
+
 .p-single__text {
     line-height: 1.5;
-    margin-top: 10px;
-    padding-inline: 10px;
 
     @include global.mq('sp') {
         font-size: min(calc(18 / global.$design-sp-width * 100vw),18px);
     }
 }
+
+
 
 /*================================================================
 URL
@@ -124,7 +161,9 @@ URL
 
 // .p-single__note {}
 
-// .p-single__manager {}
+.p-single__manager {
+    word-break: keep-all
+}
 
 .p-single__skill {
     display: flex;
@@ -145,7 +184,9 @@ URL
 製作期間
 ================================================================*/
 
-// .p-single__date {}
+.p-single__date {
+    word-break: keep-all
+}
 
 // .p-single__time {}
 
@@ -159,7 +200,8 @@ URL
 
 .p-single__outlineText {
     white-space: pre-wrap;
-    line-height: 26px;
+    // line-height: 26px;
+    line-height: 1.7;
     text-align: justify;
 }
 

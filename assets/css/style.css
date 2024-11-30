@@ -1294,18 +1294,33 @@ item 投稿記事
 }
 
 .p-work__itemTitle {
+	display: inline-block;
 	font-size: 24px;
+	padding-inline: 10px;
 	margin-top: 14px;
+	position: relative;
+	z-index: 5;
+}
+
+.p-work__itemTitle::after {
+	content: "";
+	width: 100%;
+	height: 60%;
+	background: rgba(255, 255, 255, 0.9);
+	position: absolute;
+	bottom: -15%;
+	left: 0;
+	z-index: -1;
 }
 
 .p-work__contentWrap {
-	font-size: 20px;
 	font-size: min(1.5625vw, 20px);
+	font-weight: 400;
 	margin-top: 14px;
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
-	font-weight: 400;
+	gap: 12px;
+	padding-inline: 10px;
 }
 
 /*================================================================
@@ -1362,19 +1377,47 @@ single 制作物詳細
 
 .p-single__subTitle {
 	display: inline-block;
+	width: -moz-fit-content;
+	width: fit-content;
 	font-size: 24px;
 	padding-inline: 50px;
 	line-height: 50px;
 	border: 2px solid #dede00;
 	border-radius: 0px 20px 20px 0px;
 	background: #ff0;
+}
+
+.p-single__item {
+	display: flex;
+	width: -moz-fit-content;
+	width: fit-content;
+	flex-direction: column;
 	margin-top: 32px;
+	position: relative;
+	z-index: 5;
+}
+
+.p-single__item::after {
+	content: "";
+	width: 100%;
+	height: calc(100% - 27px);
+	background: rgba(255, 255, 255, 0.8);
+	border-radius: 0 20px 20px 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.p-single__itemContent {
+	display: inline-flex;
+	flex-direction: column;
+	gap: 16px;
+	padding: 20px 30px 30px;
 }
 
 .p-single__text {
 	line-height: 1.5;
-	margin-top: 10px;
-	padding-inline: 10px;
 }
 
 /*================================================================
@@ -1397,6 +1440,10 @@ URL
 制作詳細
 ================================================================*/
 
+.p-single__manager {
+	word-break: keep-all;
+}
+
 .p-single__skill {
 	display: flex;
 	flex-wrap: wrap;
@@ -1415,13 +1462,17 @@ URL
 製作期間
 ================================================================*/
 
+.p-single__date {
+	word-break: keep-all;
+}
+
 /*================================================================
 制作概要
 ================================================================*/
 
 .p-single__outlineText {
 	white-space: pre-wrap;
-	line-height: 26px;
+	line-height: 1.7;
 	text-align: justify;
 }
 
@@ -3943,6 +3994,14 @@ schedule スケジュール
 .p-single__subTitle {
 	font-size: min(5.3333333333vw, 20px);
 	line-height: 40px;
+}
+
+.p-single__item {
+	margin-top: 20px;
+}
+
+.p-single__itemContent {
+	padding: 16px 20px 20px;
 }
 
 .p-single__text {
